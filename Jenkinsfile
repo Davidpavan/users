@@ -8,7 +8,7 @@ pipeline{
    stage('compile code'){
      steps{
         sh '''
-          mvn compile
+          mvn clean compile
         '''
      }
    }

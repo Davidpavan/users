@@ -37,7 +37,7 @@ pipeline{
    stage('Upload Artifacts'){
      steps{
        sh '''
-       curl -f -v -u admin:admin123 --upload-file user.zip http://192.168.0.84:8081/repository/user/users.zip
+       curl -f -v -u admin:admin123 --upload-file users.zip http://192.168.0.84:8081/repository/user/users.zip
        '''
      }
    }

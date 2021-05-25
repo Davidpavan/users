@@ -22,15 +22,15 @@ pipeline{
    stage('Preparing Artifacts'){
      steps{
        sh '''
-       cp target/*.jar user.jar
-       zip -r user.zip user.jar
+       cp target/*.jar users.jar
+       zip -r users.zip users.jar
        '''
      }
    }
    stage('Upload Artifacts'){
      steps{
        sh '''
-       curl -f -v -u admin:admin123 --upload-file user.zip http://192.168.0.84:8081/repository/user/user.zip
+       curl -f -v -u admin:admin123 --upload-file user.zip http://192.168.0.84:8081/repository/user/users.zip
        '''
      }
    }

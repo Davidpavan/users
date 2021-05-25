@@ -5,13 +5,20 @@ pipeline{
 
   stages{
 
-   stage('compile code'){
+   stage('clean code'){
      steps{
         sh '''
           mvn clean
         '''
      }
    }
+   stage('compile code'){
+        steps{
+           sh '''
+             mvn compile
+           '''
+        }
+      }
    stage('Make Package'){
      steps{
        sh '''

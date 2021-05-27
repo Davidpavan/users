@@ -5,13 +5,6 @@ pipeline{
 
   stages{
 
-   stage('clean code'){
-     steps{
-        sh '''
-          mvn clean
-        '''
-     }
-   }
    stage('compile code'){
         steps{
            sh '''

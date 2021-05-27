@@ -1,38 +1,9 @@
-pipeline{
-  agent {
-     label 'JAVA'
-  }
+@Library('Todo') _
 
-  stages{
-
-   stage('compile code'){
-        steps{
-           sh '''
-             mvn compile
-           '''
-        }
-      }
-   stage('Make Package'){
-     steps{
-       sh '''
-         mvn package
-       '''
-     }
-   }
-   stage('Preparing Artifacts'){
-     steps{
-       sh '''
-       cp target/*.jar users.jar
-       zip -r users.zip users.jar
-       '''
-     }
-   }
-   stage('Upload Artifacts'){
-     steps{
-       sh '''
-       curl -f -v -u admin:admin123 --upload-file users.zip http://192.168.0.84:8081/repository/user/users.zip
-       '''
-     }
-   }
-  }
-}
+Todo(
+  COMPONENT         : 'users',
+  PROJECT_NAME      : "Todo",
+  SLAVE_LABEL       : "JAVA",
+  SKIP_NEXUS_UPLOAD : false,
+  APP_TYPE          : "JAVA"
+)

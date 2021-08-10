@@ -1,6 +1,6 @@
 @Library('Todo') _
 
-Todo(
+docker(
   COMPONENT         : 'users',
   PROJECT_NAME      : "Todo"
 )
